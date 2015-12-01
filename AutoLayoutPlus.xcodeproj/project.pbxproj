@@ -10,6 +10,8 @@
 		B3337CA11C0D215500BE5856 /* AutoLayoutPlus.h in Headers */ = {isa = PBXBuildFile; fileRef = B3337CA01C0D215500BE5856 /* AutoLayoutPlus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3337CA81C0D215500BE5856 /* AutoLayoutPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3337C9D1C0D215500BE5856 /* AutoLayoutPlus.framework */; };
 		B3337CAD1C0D215500BE5856 /* AutoLayoutPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3337CAC1C0D215500BE5856 /* AutoLayoutPlusTests.swift */; };
+		B3337CDD1C0D24A400BE5856 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3337CDB1C0D24A400BE5856 /* NSLayoutConstraint.swift */; };
+		B3337CDE1C0D24A400BE5856 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3337CDC1C0D24A400BE5856 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		B3337CA71C0D215500BE5856 /* AutoLayoutPlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3337CAC1C0D215500BE5856 /* AutoLayoutPlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutPlusTests.swift; sourceTree = "<group>"; };
 		B3337CAE1C0D215500BE5856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3337CDB1C0D24A400BE5856 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		B3337CDC1C0D24A400BE5856 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				B3337CA01C0D215500BE5856 /* AutoLayoutPlus.h */,
+				B3337CDB1C0D24A400BE5856 /* NSLayoutConstraint.swift */,
+				B3337CDC1C0D24A400BE5856 /* UIView.swift */,
 				B3337CA21C0D215500BE5856 /* Info.plist */,
 			);
 			path = AutoLayoutPlus;
@@ -194,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3337CDE1C0D24A400BE5856 /* UIView.swift in Sources */,
+				B3337CDD1C0D24A400BE5856 /* NSLayoutConstraint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,28 +316,33 @@
 		B3337CB21C0D215500BE5856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AutoLayoutPlus/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruicosta.AutoLayoutPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B3337CB31C0D215500BE5856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AutoLayoutPlus/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruicosta.AutoLayoutPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,6 +389,7 @@
 				B3337CB31C0D215500BE5856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3337CB41C0D215500BE5856 /* Build configuration list for PBXNativeTarget "AutoLayoutPlusTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +398,7 @@
 				B3337CB61C0D215500BE5856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
