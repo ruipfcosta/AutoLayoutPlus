@@ -22,5 +22,9 @@ public extension NSLayoutConstraint {
     public class func withFormat(format: String, options: NSLayoutFormatOptions = NSLayoutFormatOptions(rawValue: 0), metrics: [String : AnyObject]? = nil, views: [String : AnyObject]) -> [NSLayoutConstraint] {
         return NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: metrics, views: views)
     }
+    
+    public class func withFormat(format: [String], metrics: [String : AnyObject]? = nil, views: [String : AnyObject]) -> [NSLayoutConstraint] {
+        return format.flatMap { NSLayoutConstraint.constraintsWithVisualFormat($0, options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views) }
+    }
 
 }

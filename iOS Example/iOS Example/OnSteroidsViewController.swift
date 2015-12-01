@@ -36,29 +36,23 @@ class OnSteroidsViewController: UIViewController {
     func setupConstraints() {
         let views = ["topContainer": topContainer, "centerBlueContainer": centerBlueContainer, "centerGreenContainer": centerGreenContainer, "centerOrangeContainer": centerOrangeContainer, "bottomContainer": bottomContainer]
         
-        // Top container
-        
-        view.addConstraints(NSLayoutConstraint.withFormat("V:|[topContainer(==60)]", views: views))
+        view.addConstraints(NSLayoutConstraint.withFormat([
+            "V:|[topContainer(==60)]",
+            "V:[centerBlueContainer(==200)]",
+            "V:[centerGreenContainer(==180)]",
+            "V:[centerOrangeContainer(==160)]",
+            "V:[bottomContainer]|",
+            "H:[centerBlueContainer(==100)]",
+            "H:[centerGreenContainer(==80)]",
+            "H:[centerOrangeContainer(==60)]",
+        ], views: views))
+
         view.addConstraint(topContainer.sameWidthAsParent())
-        
-        // Center views
-        
-        view.addConstraints(NSLayoutConstraint.withFormat("V:[centerBlueContainer(==200)]", views: views))
-        view.addConstraints(NSLayoutConstraint.withFormat("H:[centerBlueContainer(==100)]", views: views))
-        
-        view.addConstraints(NSLayoutConstraint.withFormat("V:[centerGreenContainer(==180)]", views: views))
-        view.addConstraints(NSLayoutConstraint.withFormat("H:[centerGreenContainer(==80)]", views: views))
-        
-        view.addConstraints(NSLayoutConstraint.withFormat("V:[centerOrangeContainer(==160)]", views: views))
-        view.addConstraints(NSLayoutConstraint.withFormat("H:[centerOrangeContainer(==60)]", views: views))
-        
-        view.addConstraints(NSLayoutConstraint.constraints(items: [centerBlueContainer, centerGreenContainer, centerOrangeContainer], attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY))
-        view.addConstraints(NSLayoutConstraint.constraints(items: [centerBlueContainer, centerGreenContainer, centerOrangeContainer], attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX))
-        
-        // Bottom container
-        
-        view.addConstraints(NSLayoutConstraint.withFormat("V:[bottomContainer]|", views: views))
         view.addConstraints(bottomContainer.sameDimensionsAsView(topContainer))
+        
+        let centerViews = [centerBlueContainer, centerGreenContainer, centerOrangeContainer]
+        view.addConstraints(NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY))
+        view.addConstraints(NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX))
     }
     
     func makeTopContainer() -> UIView {
