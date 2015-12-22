@@ -84,10 +84,10 @@ convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, rela
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
 
 // AutoLayoutPlus style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY)
 ```
 
 ---
@@ -100,10 +100,10 @@ class func withFormat(format: String, options: NSLayoutFormatOptions = NSLayoutF
 
 ```swift
 // Old style
-view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[topContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+NSLayoutConstraint.constraintsWithVisualFormat("V:|[topContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
 
 // AutoLayoutPlus style
-view.addConstraints(NSLayoutConstraint.withFormat("V:|[topContainer(==60)]", views: views))
+NSLayoutConstraint.withFormat("V:|[topContainer(==60)]", views: views)
 ```
 
 ---
@@ -116,12 +116,12 @@ class func constraints(items views: [AnyObject], attribute attr1: NSLayoutAttrib
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerGreenContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerOrangeContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerGreenContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerOrangeContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
 
 // AutoLayoutPlus style
-view.addConstraints(NSLayoutConstraint.constraints(items: [centerBlueContainer, centerGreenContainer, centerOrangeContainer], attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY))
+NSLayoutConstraint.constraints(items: [centerBlueContainer, centerGreenContainer, centerOrangeContainer], attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY)
 ```
 
 ###UIView extensions
@@ -135,11 +135,11 @@ func centeredInView(view: UIView, multiplierX: CGFloat = 1, constantX: CGFloat =
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0)
         
 // AutoLayoutPlus style
-view.addConstraints(centerBlueContainer. centeredInParent())
+centerBlueContainer. centeredInParent()
 ```
 
 ---
@@ -155,10 +155,10 @@ func centeredInViewX(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
         
 // AutoLayoutPlus style
-view.addConstraint(centerBlueContainer. centeredInParentY())
+centerBlueContainer. centeredInParentY()
 ```
 
 ---
@@ -172,11 +172,11 @@ func sameDimensionsAsView(view: UIView, multiplier: CGFloat = 1, constant: CGFlo
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerBlueContainer, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
         
 // AutoLayoutPlus style
-view.addConstraints(centerBlueContainer. sameDimensionsAsParent())
+centerBlueContainer. sameDimensionsAsParent()
 ```
 
 ---
@@ -192,10 +192,10 @@ func sameWidthAsView(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
         
 // AutoLayoutPlus style
-view.addConstraints(centerBlueContainer. sameHeightAsParent())
+centerBlueContainer. sameHeightAsParent()
 ```
 
 ---
@@ -209,13 +209,13 @@ func likeView(view: UIView) -> [NSLayoutConstraint]
 
 ```swift
 // Old style
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
-view.addConstraint(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+NSLayoutConstraint(item: centerBlueContainer, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerBlueContainer, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0)
      
 // AutoLayoutPlus style
-view.addConstraints(centerBlueContainer. likeParent())
+centerBlueContainer. likeParent()
 ```
 
 
