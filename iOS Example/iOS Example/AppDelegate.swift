@@ -16,12 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        //let oldSchool = OldSchoolViewController(nibName: nil, bundle: nil)
-        //window?.rootViewController = oldSchool
+        //let vc = OldSchoolViewController(nibName: nil, bundle: nil)
+        let vc = OnSteroidsViewController(nibName: nil, bundle: nil)
         
-        let onSteroids = OnSteroidsViewController(nibName: nil, bundle: nil)
-        window?.rootViewController = onSteroids
-        
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.whiteColor()
         

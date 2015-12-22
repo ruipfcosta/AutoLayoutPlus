@@ -36,7 +36,7 @@ class OnSteroidsViewController: UIViewController {
     func setupConstraints() {
         let views = ["topContainer": topContainer, "centerBlueContainer": centerBlueContainer, "centerGreenContainer": centerGreenContainer, "centerOrangeContainer": centerOrangeContainer, "bottomContainer": bottomContainer]
         
-        view.addConstraints(NSLayoutConstraint.withFormat([
+        var constraints = NSLayoutConstraint.withFormat([
             "V:|[topContainer(==60)]",
             "V:[centerBlueContainer(==200)]",
             "V:[centerGreenContainer(==180)]",
@@ -45,14 +45,16 @@ class OnSteroidsViewController: UIViewController {
             "H:[centerBlueContainer(==100)]",
             "H:[centerGreenContainer(==80)]",
             "H:[centerOrangeContainer(==60)]",
-        ], views: views))
-
-        view.addConstraint(topContainer.sameWidthAsParent())
-        view.addConstraints(bottomContainer.sameDimensionsAsView(topContainer))
+        ], views: views)
+        
+        constraints += bottomContainer.sameDimensionsAsView(topContainer)
+        constraints += [topContainer.sameWidthAsParent()]
         
         let centerViews = [centerBlueContainer, centerGreenContainer, centerOrangeContainer]
-        view.addConstraints(NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY))
-        view.addConstraints(NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX))
+        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY)
+        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX)
+        
+        NSLayoutConstraint.activateConstraints(constraints)
     }
     
     func makeTopContainer() -> UIView {
@@ -80,11 +82,14 @@ class OnSteroidsViewController: UIViewController {
         
         let views = ["leftArea": leftArea, "centerArea": centerArea, "rightArea": rightArea]
         
-        t.addConstraints(NSLayoutConstraint.withFormat("V:|[leftArea]|", options: .AlignAllCenterY, views: views))
-        t.addConstraints(NSLayoutConstraint.withFormat("H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .AlignAllCenterY, views: views))
+        var constraints: [NSLayoutConstraint] = []
+        constraints += NSLayoutConstraint.withFormat("V:|[leftArea]|", options: .AlignAllCenterY, views: views)
+        constraints += NSLayoutConstraint.withFormat("H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .AlignAllCenterY, views: views)
         
-        t.addConstraints(NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .CenterY, relatedBy: .Equal, toItem: leftArea, attribute: .CenterY))
-        t.addConstraints(NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .Height, relatedBy: .Equal, toItem: leftArea, attribute: .Height))
+        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .CenterY, relatedBy: .Equal, toItem: leftArea, attribute: .CenterY)
+        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .Height, relatedBy: .Equal, toItem: leftArea, attribute: .Height)
+        
+        NSLayoutConstraint.activateConstraints(constraints)
         
         return t
     }
