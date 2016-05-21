@@ -21,49 +21,6 @@ Keep reading for some more details on what's included (and have a look at the ex
 - [x] Makes your code less verbose and easier to follow.
 - [x] No need to learn yet another DSL or library: AutoLayoutPlus feels natural and provides a similar experience to the methods you are already familiar with!
 
-##Requirements
-
-* iOS 8.0+
-* Xcode 7.0+
-
-##Instalation
-
-###CocoaPods
-
-[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To integrate AutoLayoutPlus into your Xcode project using CocoaPods, include this in your Podfile:
-
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-pod 'AutoLayoutPlus'
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate AutoLayoutPlus into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "ruipfcosta/AutoLayoutPlus" "master"
-```
-
-Run `carthage` to build the framework and drag the built `AutoLayoutPlus.framework` into your Xcode project.
-
 ##Extensions
 
 AutoLayoutPlus works by adding some useful extensions to NSLayoutConstraint and UIView classes. To make use of those extensions don't forget to import AutoLayoutPlus into your code:
@@ -218,6 +175,48 @@ NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .E
 centerBlueContainer. likeParent()
 ```
 
+##Requirements
+
+* iOS 8.0+
+* Xcode 7.0+
+
+##Instalation
+
+###CocoaPods
+
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate AutoLayoutPlus into your Xcode project using CocoaPods, include this in your Podfile:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'AutoLayoutPlus'
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate AutoLayoutPlus into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "ruipfcosta/AutoLayoutPlus" "master"
+```
+
+Run `carthage` to build the framework and drag the built `AutoLayoutPlus.framework` into your Xcode project.
 
 ## Credits
 
