@@ -11,14 +11,14 @@ import UIKit
 class OldSchoolViewController: UIViewController {
     
     lazy var topContainer: UIView           = self.makeTopContainer()
-    lazy var centerGreenContainer: UIView   = self.makeCenterContainer(UIColor.greenColor())
-    lazy var centerBlueContainer: UIView    = self.makeCenterContainer(UIColor.blueColor())
-    lazy var centerOrangeContainer: UIView  = self.makeCenterContainer(UIColor.orangeColor())
+    lazy var centerGreenContainer: UIView   = self.makeCenterContainer(UIColor.green)
+    lazy var centerBlueContainer: UIView    = self.makeCenterContainer(UIColor.blue)
+    lazy var centerOrangeContainer: UIView  = self.makeCenterContainer(UIColor.orange)
     lazy var bottomContainer: UIView        = self.makeBottomContainer()
     
     override func loadView() {
         view = UIView()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         setupSubviews()
         setupConstraints()
@@ -39,54 +39,54 @@ class OldSchoolViewController: UIViewController {
         
         var constraints: [NSLayoutConstraint] = []
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[topContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[topContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[topContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[topContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         
         // Center views
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[centerBlueContainer(==200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:[centerBlueContainer(==100)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[centerBlueContainer(==200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[centerBlueContainer(==100)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[centerGreenContainer(==180)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:[centerGreenContainer(==80)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[centerGreenContainer(==180)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[centerGreenContainer(==80)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[centerOrangeContainer(==160)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:[centerOrangeContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[centerOrangeContainer(==160)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[centerOrangeContainer(==60)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         
-        constraints.append(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
-        constraints.append(NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerBlueContainer, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerBlueContainer, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
         
-        constraints.append(NSLayoutConstraint(item: centerGreenContainer, attribute: .CenterY, relatedBy: .Equal, toItem: centerBlueContainer, attribute: .CenterY, multiplier: 1, constant: 0))
-        constraints.append(NSLayoutConstraint(item: centerGreenContainer, attribute: .CenterX, relatedBy: .Equal, toItem: centerBlueContainer, attribute: .CenterX, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerGreenContainer, attribute: .centerY, relatedBy: .equal, toItem: centerBlueContainer, attribute: .centerY, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerGreenContainer, attribute: .centerX, relatedBy: .equal, toItem: centerBlueContainer, attribute: .centerX, multiplier: 1, constant: 0))
         
-        constraints.append(NSLayoutConstraint(item: centerOrangeContainer, attribute: .CenterY, relatedBy: .Equal, toItem: centerBlueContainer, attribute: .CenterY, multiplier: 1, constant: 0))
-        constraints.append(NSLayoutConstraint(item: centerOrangeContainer, attribute: .CenterX, relatedBy: .Equal, toItem: centerBlueContainer, attribute: .CenterX, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerOrangeContainer, attribute: .centerY, relatedBy: .equal, toItem: centerBlueContainer, attribute: .centerY, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerOrangeContainer, attribute: .centerX, relatedBy: .equal, toItem: centerBlueContainer, attribute: .centerX, multiplier: 1, constant: 0))
         
         // Bottom container
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[bottomContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[bottomContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        constraints.append(NSLayoutConstraint(item: bottomContainer, attribute: .Height, relatedBy: .Equal, toItem: topContainer, attribute: .Height, multiplier: 1, constant: 0))
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[bottomContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[bottomContainer]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        constraints.append(NSLayoutConstraint(item: bottomContainer, attribute: .height, relatedBy: .equal, toItem: topContainer, attribute: .height, multiplier: 1, constant: 0))
         
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
     
     func makeTopContainer() -> UIView {
         let t = UIView()
         t.translatesAutoresizingMaskIntoConstraints = false
-        t.backgroundColor = UIColor.yellowColor()
+        t.backgroundColor = UIColor.yellow
         
         let leftArea = UIView()
         leftArea.translatesAutoresizingMaskIntoConstraints = false
-        leftArea.backgroundColor = UIColor.greenColor()
+        leftArea.backgroundColor = UIColor.green
         
         let centerArea = UIView()
         centerArea.translatesAutoresizingMaskIntoConstraints = false
-        centerArea.backgroundColor = UIColor.blueColor()
+        centerArea.backgroundColor = UIColor.blue
         
         let rightArea = UIView()
         rightArea.translatesAutoresizingMaskIntoConstraints = false
-        rightArea.backgroundColor = UIColor.blackColor()
+        rightArea.backgroundColor = UIColor.black
         
         t.addSubview(leftArea)
         t.addSubview(centerArea)
@@ -98,19 +98,19 @@ class OldSchoolViewController: UIViewController {
         
         var constraints: [NSLayoutConstraint] = []
         
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[leftArea]|", options: .AlignAllCenterY, metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .AlignAllCenterY, metrics: nil, views: views)
-        constraints.append(NSLayoutConstraint(item: leftArea, attribute: .CenterY, relatedBy: .Equal, toItem: t, attribute: .CenterY, multiplier: 1, constant: 0))
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[leftArea]|", options: .alignAllCenterY, metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .alignAllCenterY, metrics: nil, views: views)
+        constraints.append(NSLayoutConstraint(item: leftArea, attribute: .centerY, relatedBy: .equal, toItem: t, attribute: .centerY, multiplier: 1, constant: 0))
         
-        constraints.append(NSLayoutConstraint(item: centerArea, attribute: .Height, relatedBy: .Equal, toItem: leftArea, attribute: .Height, multiplier: 1, constant: 0))
-        constraints.append(NSLayoutConstraint(item: rightArea, attribute: .Height, relatedBy: .Equal, toItem: leftArea, attribute: .Height, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: centerArea, attribute: .height, relatedBy: .equal, toItem: leftArea, attribute: .height, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: rightArea, attribute: .height, relatedBy: .equal, toItem: leftArea, attribute: .height, multiplier: 1, constant: 0))
         
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         
         return t
     }
     
-    func makeCenterContainer(backgroundColor: UIColor) -> UIView {
+    func makeCenterContainer(_ backgroundColor: UIColor) -> UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = backgroundColor
@@ -121,7 +121,7 @@ class OldSchoolViewController: UIViewController {
     func makeBottomContainer() -> UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.redColor()
+        v.backgroundColor = UIColor.red
         
         return v
     }

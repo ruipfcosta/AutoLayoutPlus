@@ -12,14 +12,14 @@ import AutoLayoutPlus
 class OnSteroidsViewController: UIViewController {
 
     lazy var topContainer: UIView           = self.makeTopContainer()
-    lazy var centerGreenContainer: UIView   = self.makeCenterContainer(UIColor.greenColor())
-    lazy var centerBlueContainer: UIView    = self.makeCenterContainer(UIColor.blueColor())
-    lazy var centerOrangeContainer: UIView  = self.makeCenterContainer(UIColor.orangeColor())
+    lazy var centerGreenContainer: UIView   = self.makeCenterContainer(UIColor.green)
+    lazy var centerBlueContainer: UIView    = self.makeCenterContainer(UIColor.blue)
+    lazy var centerOrangeContainer: UIView  = self.makeCenterContainer(UIColor.orange)
     lazy var bottomContainer: UIView        = self.makeBottomContainer()
     
     override func loadView() {
         view = UIView()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         setupSubviews()
         setupConstraints()
@@ -51,28 +51,28 @@ class OnSteroidsViewController: UIViewController {
         constraints += [topContainer.sameWidthAsParent()]
         
         let centerViews = [centerBlueContainer, centerGreenContainer, centerOrangeContainer]
-        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY)
-        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX)
+        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY)
+        constraints += NSLayoutConstraint.constraints(items: centerViews, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX)
         
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
     
     func makeTopContainer() -> UIView {
         let t = UIView()
         t.translatesAutoresizingMaskIntoConstraints = false
-        t.backgroundColor = UIColor.yellowColor()
+        t.backgroundColor = UIColor.yellow
         
         let leftArea = UIView()
         leftArea.translatesAutoresizingMaskIntoConstraints = false
-        leftArea.backgroundColor = UIColor.greenColor()
+        leftArea.backgroundColor = UIColor.green
         
         let centerArea = UIView()
         centerArea.translatesAutoresizingMaskIntoConstraints = false
-        centerArea.backgroundColor = UIColor.blueColor()
+        centerArea.backgroundColor = UIColor.blue
         
         let rightArea = UIView()
         rightArea.translatesAutoresizingMaskIntoConstraints = false
-        rightArea.backgroundColor = UIColor.blackColor()
+        rightArea.backgroundColor = UIColor.black
         
         t.addSubview(leftArea)
         t.addSubview(centerArea)
@@ -83,18 +83,18 @@ class OnSteroidsViewController: UIViewController {
         let views = ["leftArea": leftArea, "centerArea": centerArea, "rightArea": rightArea]
         
         var constraints: [NSLayoutConstraint] = []
-        constraints += NSLayoutConstraint.withFormat("V:|[leftArea]|", options: .AlignAllCenterY, views: views)
-        constraints += NSLayoutConstraint.withFormat("H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .AlignAllCenterY, views: views)
+        constraints += NSLayoutConstraint.withFormat("V:|[leftArea]|", options: .alignAllCenterY, views: views)
+        constraints += NSLayoutConstraint.withFormat("H:|[leftArea(==60)][centerArea][rightArea(==leftArea)]|", options: .alignAllCenterY, views: views)
         
-        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .CenterY, relatedBy: .Equal, toItem: leftArea, attribute: .CenterY)
-        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .Height, relatedBy: .Equal, toItem: leftArea, attribute: .Height)
+        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .centerY, relatedBy: .equal, toItem: leftArea, attribute: .centerY)
+        constraints += NSLayoutConstraint.constraints(items: [centerArea, rightArea], attribute: .height, relatedBy: .equal, toItem: leftArea, attribute: .height)
         
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         
         return t
     }
     
-    func makeCenterContainer(backgroundColor: UIColor) -> UIView {
+    func makeCenterContainer(_ backgroundColor: UIColor) -> UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = backgroundColor
@@ -105,7 +105,7 @@ class OnSteroidsViewController: UIViewController {
     func makeBottomContainer() -> UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.redColor()
+        v.backgroundColor = UIColor.red
         
         return v
     }
