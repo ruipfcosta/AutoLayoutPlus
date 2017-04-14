@@ -1,4 +1,4 @@
-#AutoLayoutPlus
+# AutoLayoutPlus
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
@@ -14,14 +14,14 @@ With AutoLayoutPlus you don't need to change the way you've always worked with A
 
 Keep reading for some more details on what's included (and have a look at the example provided)!
 
-##Features
+## Features
 
 - [x] AutoLayoutPlus complements the existing UIKit methods to create constraints for your views.
 - [x] Helper methods for the most repetitive tasks (center view, apply the same constraint to multiple views, fill view horizontally, etc).
 - [x] Makes your code less verbose and easier to follow.
 - [x] No need to learn yet another DSL or library: AutoLayoutPlus feels natural and provides a similar experience to the methods you are already familiar with!
 
-##Extensions
+## Extensions
 
 AutoLayoutPlus works by adding some useful extensions to NSLayoutConstraint and UIView classes. To make use of those extensions don't forget to import AutoLayoutPlus into your code:
 
@@ -31,13 +31,13 @@ import AutoLayoutPlus
 
 To help reducing the verbosity of the code, the ```multiplier``` and ```constant``` arguments have default values 1 and 0, respectively, so you won't have to specify them unless absolutely necessary.
 
-###NSLayoutConstraint extensions
+### NSLayoutConstraint extensions
 
 ```swift
 convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute)
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -53,7 +53,7 @@ NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterY, relatedBy: .E
 class func withFormat(format: String, options: NSLayoutFormatOptions = NSLayoutFormatOptions(rawValue: 0), metrics: [String : AnyObject]? = nil, views: [String : AnyObject]) -> [NSLayoutConstraint]
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -69,7 +69,7 @@ NSLayoutConstraint.withFormat("V:|[topContainer(==60)]", views: views)
 class func constraints(items views: [AnyObject], attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat = 1, constant c: CGFloat = 0) -> [NSLayoutConstraint]
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -81,14 +81,14 @@ NSLayoutConstraint(item: centerOrangeContainer, attribute: .CenterY, relatedBy: 
 NSLayoutConstraint.constraints(items: [centerBlueContainer, centerGreenContainer, centerOrangeContainer], attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY)
 ```
 
-###UIView extensions
+### UIView extensions
 
 ```swift
 func centeredInParent(multiplierX: CGFloat = 1, constantX: CGFloat = 0, multiplierY: CGFloat = 1, constantY: CGFloat = 0) -> [NSLayoutConstraint]
 func centeredInView(view: UIView, multiplierX: CGFloat = 1, constantX: CGFloat = 0, multiplierY: CGFloat = 1, constantY: CGFloat = 0) -> [NSLayoutConstraint]
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -108,7 +108,7 @@ func centeredInViewY(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 
 func centeredInViewX(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -125,7 +125,7 @@ func sameDimensionsAsParent(multiplier: CGFloat = 1, constant: CGFloat = 0) -> [
 func sameDimensionsAsView(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0) -> [NSLayoutConstraint]
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -145,7 +145,7 @@ func sameHeightAsView(view: UIView, multiplier: CGFloat = 1, constant: CGFloat =
 func sameWidthAsView(view: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -162,7 +162,7 @@ func likeParent() -> [NSLayoutConstraint]
 func likeView(view: UIView) -> [NSLayoutConstraint]
 ```
 
-####Usage:
+#### Usage:
 
 ```swift
 // Old style
@@ -175,14 +175,14 @@ NSLayoutConstraint(item: centerBlueContainer, attribute: .CenterX, relatedBy: .E
 centerBlueContainer. likeParent()
 ```
 
-##Requirements
+## Requirements
 
 * iOS 8.0+
 * Xcode 7.0+
 
-##Instalation
+## Instalation
 
-###CocoaPods
+### CocoaPods
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
 
